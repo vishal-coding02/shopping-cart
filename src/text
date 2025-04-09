@@ -1,0 +1,24 @@
+import ProductList from "./ProductList";
+import { useState } from "react";
+function Cart() {
+  const [cart, setCart] = useState([]);
+
+  function addToCart(product) {
+    setCart([...cart, product]);
+  }
+
+  return (
+    <div>
+      <ProductList addToCart={addToCart} />
+      {cart.map((data, index) => {
+        return (
+          <div key={index}>
+            <p>{data.name}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default Cart;
